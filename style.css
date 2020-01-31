@@ -1,0 +1,250 @@
+:root {
+    --mondrian-black: #010302;
+    --mondrian-white: #FFF5FB;
+    --mondrian-blue: #257CC1;
+    --mondrian-red: #FC0002;
+    --mondrian-yellow: #FEEE1F;
+
+    --mondrian-block-size: 52px;
+    --mondrian-border-width: 8px;
+
+    --mondrian-font-family: 'Nunito', sans-serif;
+
+    --radio-checkbox-size: 1.5rem;
+    --spacing: 1.5rem;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: var(--mondrian-font-family);
+    line-height: 1.5;
+    font-size: 100%;
+}
+
+main {
+
+}
+
+@media (min-width: 600px) {
+    main {
+        flex-direction: row;
+    }
+}
+
+main > div {
+    height: 100vh;
+}
+
+h1 {
+    font-weight: 300;
+    font-size: 2.5rem;
+    line-height: 1.1;
+    margin: var(--spacing) 0;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: var(--spacing);
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: var(--spacing);
+}
+
+.byline {
+    font-size: 1.25rem;
+}
+
+/* Form controls */
+form[name="size"] {
+    margin-bottom: var(--spacing);;
+}
+
+fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+}
+
+legend {
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+label {
+    position: relative;
+    display: inline-block;
+    padding: 0 0 0 2rem;
+    height: var(--radio-checkbox-size);
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+label:not(:first-of-type) {
+    margin-left: 1rem;
+}
+
+label::before,
+label::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: var(--radio-checkbox-size);
+    height: var(--radio-checkbox-size);
+}
+
+label::before {
+    content: " ";
+    border: 4px solid var(--mondrian-black);
+    box-sizing: border-box;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+}
+
+input[type="checkbox"] + label::after,
+input[type=radio] + label::after{
+    content: " ";
+    color: var(--mondrian-black);
+    line-height: 1.5;
+}
+
+/* :checked */
+input[type="checkbox"]:checked + label::before,
+input[type="radio"]:checked + label::before {
+    background: var(--mondrian-blue);
+    border-color: var(--mondrian-black);
+    border-width: 4px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.mondrian {
+    display: grid;
+    grid-auto-columns: var(--mondrian-block-size);
+    grid-auto-rows: var(--mondrian-block-size);
+    grid-auto-flow: dense;
+    grid-gap: var(--mondrian-border-width);
+    grid-template-columns: repeat(auto-fit, minmax(var(--mondrian-block-size), 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(var(--mondrian-block-size), 1fr));
+    background-color: var(--mondrian-black);
+    border: var(--mondrian-border-width) solid var(--mondrian-black);
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.mondrian.mondrian--small {
+    max-height: 360px;
+    max-width: 360px;
+}
+
+.mondrian.mondrian--medium {
+    max-height: 420px;
+    max-width: 420px;
+}
+
+.mondrian.mondrian--large {
+  min-height: 1920px;
+min-width: 1080px;
+}
+
+.mondrian-controls {
+    padding: var(--spacing);
+    border: 2px solid var(--mondrian-black);
+    background: var(--mondrian-white);
+    margin-bottom: var(--spacing);
+}
+
+.mondrian-button {
+    margin: auto auto 0;
+    width: 200px;
+    background-color: var(--mondrian-white);
+    border: var(--mondrian-border-width) solid var(--mondrian-black);
+    padding: 10px 20px;
+    font-family: var(--mondrian-font-family);
+    line-height: 1;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.mondrian-button:hover {
+    background-color: var(--mondrian-blue);
+}
+
+.span-1 {
+    grid-column: span 1;
+}
+
+.span-2 {
+    grid-column: span 2;
+}
+
+.span-3 {
+    grid-column: span 3;
+}
+
+.span-4 {
+    grid-column: span 4;
+}
+
+.span-5 {
+    grid-column: span 5;
+}
+
+.row-1 {
+    grid-row: span 1;
+}
+
+.row-2 {
+    grid-row: span 2;
+}
+
+.row-3 {
+    grid-row: span 3;
+}
+
+.row-4 {
+    grid-row: span 4;
+}
+
+.row-4 {
+    grid-row: span 5;
+}
+
+.color-black {
+    background-color: var(--mondrian-black);
+}
+
+.color-white {
+    background-color: var(--mondrian-white);
+}
+
+.color-blue {
+    background-color: var(--mondrian-blue);
+}
+
+.color-red {
+    background-color: var(--mondrian-red);
+}
+
+.color-yellow {
+    background-color: var(--mondrian-yellow);
+}
